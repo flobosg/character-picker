@@ -41,7 +41,7 @@ Note that you may need to type in an entire word before getting any matches.
 
 To type a character, you can click on it or press =Enter= to type the selected character.
 
-To change the selection, use the keybindings =Ctrl+h= (left), =Ctrl+j= (down), =Ctrl+k= (up) and =Ctrl+l= (right).
+To change the selection, use the keybindings =Ctrl+h= or =Shift+Tab= (left), =Ctrl+j= (down), =Ctrl+k= (up) and =Ctrl+l= or =Tab= (right).
 
 To close the window, click the cross, press =Escape=, or press =Ctrl+g=.
 

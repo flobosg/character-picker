@@ -77,6 +77,9 @@ struct SearchController;
 fn ctrl_only(mods: &druid::Modifiers) -> bool {
   mods.ctrl() && !(mods.alt() || mods.meta() || mods.shift())
 }
+fn shift_only(mods: &druid::Modifiers) -> bool {
+  mods.shift() && !(mods.alt() || mods.meta() || mods.ctrl())
+}
 impl<W: Widget<AppState>> Controller<AppState, W> for SearchController {
   fn event(
     &mut self,
@@ -121,6 +124,12 @@ impl<W: Widget<AppState>> Controller<AppState, W> for SearchController {
             if ctrl_only(mods) {
               ctx.submit_command(CMD_MOVE_SELECTION.with(move_dir).to(CHAR_GRID_ID));
             }
+          }
+        } else if let Key::Tab = key {
+            if shift_only(mods) {
+              ctx.submit_command(CMD_MOVE_SELECTION.with(Direction::Left).to(CHAR_GRID_ID));
+            } else {
+              ctx.submit_command(CMD_MOVE_SELECTION.with(Direction::Right).to(CHAR_GRID_ID));
           }
         } else if let Key::Enter = key {
           let idx = *data.select_idx as usize;
